@@ -7,10 +7,19 @@
 <body>
   <div class="container">
         <%- include('partials/_header') %>
+  <h5><%= shortURL%> </h5>
 
-  <ul>
+<form method="POST" action='/urls/<%=shortURL%>/edit'>
+<!--         <input type="Edit" id="editURL" placeholder="<%= longURL %>">
+ -->
+            <input id="editURL" type="url" name="newURL" placeholder="<%= longURL %>" style="width: 300px">
 
-    The long URL and its shortened form
+
+    <input type="submit" value="Submit">
+
+  </form>
+
+
 
 </ul>
 </div>
