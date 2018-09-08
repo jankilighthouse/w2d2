@@ -2,26 +2,40 @@
 
 <html lang="en">
 <head>
-  <title>TinyApp</title>
+    <title>TinyApp-ShowURL</title>
 </head>
-<body>
-  <div class="container">
-        <%- include('partials/_header') %>
-  <h5><%= shortURL%> </h5>
+  <body style="margin-left:50px; margin-right:50px;">
+    <header align="right">
 
+    <% include partials/_header %>
+</header>
+<style>
+.button {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+a:link {
+    color: #008CBA;
+    }
+  </style>
+  <h3>Short URL : <%= shortURL%> </h3>
 <form method="POST" action='/urls/<%=shortURL%>/edit'>
-<!--         <input type="Edit" id="editURL" placeholder="<%= longURL %>">
- -->
-            <input id="editURL" type="url" name="newURL" placeholder="<%= longURL %>" style="width: 300px">
+            <input id="editURL" type="url" name="newURL" placeholder="" style="width: 300px">
 
 
-    <input type="submit" value="Submit">
+    <input type="submit" value="Update" class="button">
 
   </form>
 
-
-
 </ul>
-</div>
 </body>
 </html>
+

@@ -1,22 +1,35 @@
 <div class="header clearfix">
     <nav>
-        <ul class="nav nav-pills pull-right">
-            <li role="presentation"><a href="/">Home</a></li>
-        </ul>
+    <style>
+.button {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+a:link {
+    color: #008CBA;
+    }
+</style>
        <%  if(user){ %>
-              <p><%= user.email %>You are logged in! </p> <a href = '/urls'>My links</a>
-
-          <form method="POST" action = '/logout'>
-          <input type="submit" value="Logout">
+            <p><%= user.email %><h>You are logged in! </p>  <a href = '/urls'><p style="text-align:right"><h3>My links</a>
+            <form method="POST" action = '/logout'>
+          <input type="submit" value="Logout"  align ="right" class="button" />
         </form>
 <% } else {%>
-      <a href="/login">Login</a>
-      <a href="/register">Create a new account</a>
+<p align="right">
+<nav>
+  <a href="/login">Login</a>
+  <a href="/register">Create a new account</a><nav>
+</p>
+<% } %>
 
-
-    <% } %>
-
-        <h3 class="text-muted">Node.js Blog</h3>
     </nav>
 </div>
 

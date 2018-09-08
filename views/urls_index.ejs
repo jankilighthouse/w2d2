@@ -2,31 +2,52 @@
 
 <html lang="en">
 <head>
-  <title>TinyApp</title>
+    <title>TinyApp-Index</title>
 </head>
-<body>
-<div class="container">
-        <%- include('partials/_header') %>
-<ul>
+  <body style="margin-left:50px; margin-right:50px;">
+    <header align="right">
+              <% include partials/_header %>
+</header>
+<style>
+.button {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+a:link {
+    color: 008CBA;
+    font-size: :25px;
+    }
+</style>
+    <h1>URL Index</h1>
+ <a href="http://localhost:8080/urls/new"> <h3>Create a New Short Link</a>
+    <table style="margin:50px;">
+    <% for(let key in urls){ %>
+              <tr style="height:30px;">
 
- <% for(let key in url){ %>
-  <p><%= url[key] %></p>
-<%= key %>
-  <a href = "/urls/<%= key %>"> Edit </a>
-          <form method="POST" action = '/urls/<%= url %>/delete'>
-            <input type="submit" value="Delete">
+        <td><%= key %></td>
+                      <td style="width:50px;">
 
+  <a href = "/urls/<%= key %>"><h3> Edit </a></td>
+        <td>
+          <form method="POST" action = '/urls/<%= key %>/delete'>
+
+            <input type="submit" value="Delete" class="button">
+</td>
 
   </form>
 
-
   <% }%>
 
- <a href="http://localhost:8080/urls/new">Shortening URL</a>
-</ul>
 </div>
 
-</ul>
 </body>
 </html>
 
