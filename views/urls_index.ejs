@@ -4,10 +4,6 @@
 <head>
     <title>TinyApp-Index</title>
 </head>
-  <body style="margin-left:50px; margin-right:50px;">
-    <header align="right">
-              <% include partials/_header %>
-</header>
 <style>
 .button {
     background-color: #008CBA;
@@ -25,15 +21,34 @@ a:link {
     color: 008CBA;
     font-size: :25px;
     }
+body {
+    margin-left:50px;
+    margin-right:50px
+  }
+table {
+  margin:50px
+  }
+tr{
+  height:30px
+}
+td{
+  style="width:50px
+}
 </style>
-    <h1>URL Index</h1>
- <a href="http://localhost:8080/urls/new"> <h3>Create a New Short Link</a>
-    <table style="margin:50px;">
-    <% for(let key in urls){ %>
-              <tr style="height:30px;">
 
-        <td><%= key %></td>
-                      <td style="width:50px;">
+  <body>
+    <header align="right">
+              <% include partials/_header %>
+</header>
+
+    <h1>URL Index</h1>
+ <a href="/urls/new"> <h3>Create a New Short Link</a>
+    <table>
+    <% for(let key in urls){ %>
+              <tr>
+
+        <td><a href="<%= urls[key].longURL %>" target="_blank"><%= key %></a></td>
+    <td>
 
   <a href = "/urls/<%= key %>"><h3> Edit </a></td>
         <td>

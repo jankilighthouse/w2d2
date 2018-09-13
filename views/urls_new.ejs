@@ -2,10 +2,6 @@
 <html lang="en">
   <head><title>TinyApp-Index</title>
 </head>
-  <body style="margin-left:50px; margin-right:50px;">
-    <header align="right">
-    <% include partials/_header %>
-</header>
 <style>
 .button {
     background-color: #008CBA;
@@ -22,7 +18,16 @@
 a:link {
     color: #008CBA;
     }
+body {
+    margin-left:50px;
+    margin-right:50px
+  }
 </style>
+  <body>
+    <header align="right">
+    <% include partials/_header %>
+</header>
+
 <form action="/urls" method="POST" style="margin:150px;">
       <label for="longURL"><h3>Enter a URL:</label></h3>
       <input id="longURL" type="text" name="longURL" placeholder="http://" style="width: 300px">

@@ -48,7 +48,7 @@ function urlsForUser(id) {
 
     if(urlDatabase[i].id === id) {
       urls[i] = {
-          longURL:urlDatabase[i].longURL
+          longURL: urlDatabase[i].url
       }
 
     }
@@ -114,11 +114,12 @@ app.get('/login', (req, res) => {
   }
 });
 //POST - Login : Handles login info, sets the cookie to id and redirects to homepage if user is authenticated
-app.post('/login',(req,res)=> //login
-{
-if(req.body.email === '' || req.body.password === '') {
+app.post('/login',(req,res) => {//login
+
+ if(req.body.email === '' || req.body.password === '') {
     res.redirect(400, '/login')
-  } else {
+  }
+  else {
     for(let i in users) {
       if (users[i].email === req.body.email) {
         if (bcrypt.compareSync(req.body.password,users[i].password)) {
@@ -150,7 +151,7 @@ app.get("/urls", (req, res) => {
 const cookie = req.session.user_id;
 let userURL = urlsForUser(cookie) // for hiding data to third party
    let templateVars ={urls: userURL,user: users[cookie], url:urlDatabase };
-
+   console.log(templateVars.urls);
               if(cookie){
                   res.render("urls_index",templateVars);  /// if user is login then he can acess
                       }else{
@@ -184,7 +185,7 @@ if(!urlDatabase[req.params.id]){
     }
 });
 
-//POST - Edit : Redirects to /urls:id after updating the selected url in the database
+//POST - Edit : Redirects to /urls:id after updating the selected urls in the database
 app.post("/urls/:id/edit", (req, res) => {
       if(urlDatabase[req.params.id].id === req.session.user_id){
       urlDatabase[req.params.id].url = req.body.editURL;

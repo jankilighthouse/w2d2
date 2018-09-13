@@ -4,11 +4,6 @@
 <head>
     <title>TinyApp-ShowURL</title>
 </head>
-  <body style="margin-left:50px; margin-right:50px;">
-    <header align="right">
-
-    <% include partials/_header %>
-</header>
 <style>
 .button {
     background-color: #008CBA;
@@ -25,10 +20,21 @@
 a:link {
     color: #008CBA;
     }
+ body {
+    margin-left:50px;
+    margin-right:50px
+  }
   </style>
+  <body>
+    <header align="right">
+
+    <% include partials/_header %>
+</header>
+
   <h3>Short URL : <%= shortURL%> </h3>
+
 <form method="POST" action='/urls/<%=shortURL%>/edit'>
-            <input id="editURL" type="url" name="newURL" placeholder="" style="width: 300px">
+            <input id="editURL" type="url" name="newURL" placeholder="<%= url %>" style="width: 300px">
 
 
     <input type="submit" value="Update" class="button">
