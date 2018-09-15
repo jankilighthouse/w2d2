@@ -4,7 +4,10 @@ TinyApp is a full stack web application built with Node and Express that allows 
 
 ## Final Product
 !["Screenshot of url-page"](https://github.com/jankilighthouse/w2d2/blob/master/docs/url-page.png)
+List of URLs and their shortended URLs,allows for modification and deletion
+
 !["Screenshot of urls-update"](https://github.com/jankilighthouse/w2d2/blob/master/docs/urls-update.png)
+Every URL can be updated.
 
 ##Dependencies
 Node.js
