@@ -1,17 +1,18 @@
 const express = require("express");
-const app = express();
 const cookieSession = require('cookie-session');
 const bodyParser = require("body-parser");
-const bcrypt = require('bcrypt');
-app.set("view engine", "ejs");
+const bcrypt = require('bcrypt');const app = express();
 
+app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
+
 app.use(cookieSession({
   name: 'session',
   keys: ['janki'],
   maxAge: 24 * 60 * 60 * 1000 // 24 hours
-}))
+}));
 var PORT = 8080; // default port 8080
+
 const urlDatabase = {
   "b2xVn2": {
     url: "http://www.lighthouselabs.ca",
@@ -45,23 +46,21 @@ function findUserByEmail(email){
 function urlsForUser(id) {
   let urls = {};
   for(let i in urlDatabase) {
-
     if(urlDatabase[i].id === id) {
       urls[i] = {
           longURL: urlDatabase[i].url
       }
-
     }
   }
  return urls;
 }
 function generateRandomString() {
   let randomString='';
-    const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   for(let i=0;i<6;i++){
        randomString += possible.charAt(Math.floor(Math.random() * possible.length));
-      }
-      return randomString;
+    }
+    return randomString;
   }
 app.get('/', (req, res) => {
   if(!req.session.user_id){
@@ -72,8 +71,6 @@ app.get('/', (req, res) => {
 });
 //GET - Register : Displays the Register page
 app.get('/register', (req, res) => {
-
-  // console.log(req.user_id);
   if(!req.session.user_id){
     res.render('urls_register');
   } else {
@@ -115,8 +112,7 @@ app.get('/login', (req, res) => {
 });
 //POST - Login : Handles login info, sets the cookie to id and redirects to homepage if user is authenticated
 app.post('/login',(req,res) => {//login
-
- if(req.body.email === '' || req.body.password === '') {
+  if(req.body.email === '' || req.body.password === '') {
     res.redirect(400, '/login')
   } else {
     for(let i in users) {
@@ -139,7 +135,7 @@ app.post('/logout',(req,res)=>{
 //GET - Add : Add a new URL
 app.get("/urls/new", (req, res) => {
     const usercookie = req.session.user_id;
-     let templateVars ={user: users[usercookie]}
+     let templateVars = {user: users[usercookie]}
                       if(usercookie){
                       res.render("urls_new",templateVars);
                       } else {

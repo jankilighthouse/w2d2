@@ -25,23 +25,15 @@ a:link {
     margin-right:50px
   }
   </style>
-  <body>
+<body>
     <header align="right">
-
-    <% include partials/_header %>
-</header>
-
-  <h3>Short URL : <%= shortURL%> </h3>
-
-<form method="POST" action='/urls/<%=shortURL%>/edit'>
-            <input id="editURL" type="url" name="newURL" placeholder="<%= url %>" style="width: 300px">
-
-
-    <input type="submit" value="Update" class="button">
-
-  </form>
-
-</ul>
+      <% include partials/_header %>
+    </header>
+      <h3>Short URL : <%= shortURL%> </h3>
+      <form method="POST" action='/urls/<%=shortURL%>/edit'>
+        <input id="editURL" type="url" name="newURL" placeholder="<%= url %>" style="width: 300px">
+        <input type="submit" value="Update" class="button">
+      </form>
 </body>
 </html>
 
