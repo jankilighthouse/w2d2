@@ -53,7 +53,7 @@ function urlsForUser(id) {
 
     }
   }
-  return urls;
+ return urls;
 }
 function generateRandomString() {
   let randomString='';
@@ -85,7 +85,7 @@ app.post('/register', (req, res) => { // for register new user
   if(!req.body.email || !req.body.password){
     res.statusCode = 400;
     res.render('error', errorPageSetup(400, 'Enter a valid email or password. Register again!'));
-  } else{
+    } else {
     const user = findUserByEmail(req.body.email);
     if(user){
       res.statusCode = 400;
@@ -118,8 +118,7 @@ app.post('/login',(req,res) => {//login
 
  if(req.body.email === '' || req.body.password === '') {
     res.redirect(400, '/login')
-  }
-  else {
+  } else {
     for(let i in users) {
       if (users[i].email === req.body.email) {
         if (bcrypt.compareSync(req.body.password,users[i].password)) {
@@ -143,7 +142,7 @@ app.get("/urls/new", (req, res) => {
      let templateVars ={user: users[usercookie]}
                       if(usercookie){
                       res.render("urls_new",templateVars);
-                      }else{
+                      } else {
                       res.redirect('/login');
                     }
   });
@@ -154,7 +153,7 @@ let userURL = urlsForUser(cookie) // for hiding data to third party
    console.log(templateVars.urls);
               if(cookie){
                   res.render("urls_index",templateVars);  /// if user is login then he can acess
-                      }else{
+                      } else {
                       res.redirect('/login');
                     }
                 });

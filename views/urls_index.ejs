@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <title>TinyApp-Index</title>
@@ -19,49 +18,39 @@
 }
 a:link {
     color: 008CBA;
-    font-size: :25px;
-    }
+    font-size: :25px; }
+
 body {
     margin-left:50px;
-    margin-right:50px
-  }
+    margin-right:50px; }
+
 table {
-  margin:50px
-  }
+  margin:50px }
+
 tr{
-  height:30px
-}
+  height:30px }
+
 td{
-  style="width:50px
-}
+  style="width:50px }
 </style>
-
-  <body>
-    <header align="right">
-              <% include partials/_header %>
-</header>
-
-    <h1>URL Index</h1>
- <a href="/urls/new"> <h3>Create a New Short Link</a>
-    <table>
-    <% for(let key in urls){ %>
-              <tr>
-
-        <td><a href="<%= urls[key].longURL %>" target="_blank"><%= key %></a></td>
-    <td>
-
-  <a href = "/urls/<%= key %>"><h3> Edit </a></td>
-        <td>
-          <form method="POST" action = '/urls/<%= key %>/delete'>
-
-            <input type="submit" value="Delete" class="button">
-</td>
-
+<body>
+  <header align="right">
+    <% include partials/_header %>
+  </header>
+  <h1>URL Index</h1>
+  <a href="/urls/new"> <h3>Create a New Short Link</a>
+  <table>
+  <% for(let key in urls){ %>
+  <tr>
+  <td><a href="<%= urls[key].longURL %>" target="_blank"><%= key %></a></td>
+  <td><a href = "/urls/<%= key %>"><h3> Edit </a></td>
+  <td>
+  <form method="POST" action = '/urls/<%= key %>/delete'>
+    <input type="submit" value="Delete" class="button">
+  </td>
   </form>
-
   <% }%>
-
-</div>
+  </div>
 
 </body>
 </html>
