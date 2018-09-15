@@ -95,7 +95,7 @@ app.post('/register', (req, res) => { // for register new user
       users[id].email = req.body.email;
       const hashedPassword = bcrypt.hashSync(req.body.password, 10);
       users[id].password = hashedPassword;
-      console.log("Users are", users);
+      // console.log("Users are", users);
       req.session.user_id = id;
       res.redirect('/urls');
     }
@@ -146,7 +146,7 @@ app.get("/urls", (req, res) => {
 const cookie = req.session.user_id;
 let userURL = urlsForUser(cookie) // for hiding data to third party
    let templateVars ={urls: userURL,user: users[cookie], url:urlDatabase };
-   console.log(templateVars.urls);
+   // console.log(templateVars.urls);
               if(cookie){
                   res.render("urls_index",templateVars);  /// if user is login then he can acess
                       } else {
@@ -164,7 +164,7 @@ url:longURLRED,
 id:userID,
 shortURL:randomString
 }
-console.log(urlDatabase);
+// console.log(urlDatabase);
 res.redirect(`/urls/${randomString}`);
 });
 //GET - Edit : Shows an Edit page for a id url
@@ -184,6 +184,8 @@ if(!urlDatabase[req.params.id]){
 app.post("/urls/:id/edit", (req, res) => {
       if(urlDatabase[req.params.id].id === req.session.user_id){
       urlDatabase[req.params.id].url = req.body.editURL;
+      // console.log(urlDatabase[req.params.id].id);
+      // console.log(req.session.user_id);
       res.redirect("/urls");
     }
 });
