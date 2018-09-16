@@ -41,7 +41,7 @@ td{ style="width:50px }
     <% for(let key in urls){ %>
   <tr>
 
-     <td><%= key %> - > <a href="<%= urls[key].longURL %>" target="_blank"><%=urls[key].longURL%>  </a></td>
+     <td> <a href="<%= urls[key].longURL %>" target="_blank"> <%= key %> </a>  (<%=urls[key].longURL%> ) </td>
      <td><a href = "/urls/<%= key %>"><h3> Edit </a></td>
      <td>
        <form method="POST" action = '/urls/<%= key %>/delete'>
