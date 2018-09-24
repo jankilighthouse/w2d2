@@ -1,22 +1,4 @@
-<div class="header clearfix">
-    <nav>
-    <style>
-.button {
-    background-color: #008CBA;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-a:link {
-    color: #008CBA;
-    }
-</style>
+
        <%  if(user){ %>
             <p><%= user.email %><h>You are logged in! </p>  <a href = '/urls'><p style="text-align:right"><h3>My links</a>
             <form method="POST" action = '/logout'>
@@ -29,8 +11,4 @@ a:link {
   <a href="/register">Create a new account</a><nav>
 </p>
 <% } %>
-
-    </nav>
-</div>
-
 
