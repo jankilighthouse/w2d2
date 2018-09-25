@@ -2,35 +2,38 @@
 <html lang="en">
 <head>
     <title>TinyApp-Index</title>
+    <style>
+      .button {
+          background-color: #008CBA;
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+      }
+      a:link {
+          color: 008CBA;
+          font-size: :25px;
+      }
+      body {
+          margin-left:50px;
+          margin-right:50px;
+      }
+
+      table { margin:50px;
+      }
+
+      tr { height:30px;
+      }
+
+      td { style="width:50px;
+      }
+    </style>
 </head>
-<style>
-.button {
-    background-color: #008CBA;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-a:link {
-    color: 008CBA;
-    font-size: :25px; }
-
-body {
-    margin-left:50px;
-    margin-right:50px; }
-
-table { margin:50px }
-
-tr{ height:30px }
-
-td{ style="width:50px }
-
-</style>
 <body>
   <header align="right">
     <% include partials/_header %>
@@ -39,17 +42,17 @@ td{ style="width:50px }
    <a href="/urls/new"> <h3>Create a New Short Link</a>
   <table>
     <% for(let key in urls){ %>
-  <tr>
-
-     <td> <a href="<%= urls[key].longURL %>" target="_blank"> <%= key %> </a>  (<%=urls[key].longURL%> ) </td>
-     <td><a href = "/urls/<%= key %>"><h3> Edit </a></td>
-     <td>
-       <form method="POST" action = '/urls/<%= key %>/delete'>
-         <input type="submit" value="Delete" class="button">
+    <tr>
+      <td> <a href="<%= urls[key].longURL %>" target="_blank"> <%= key %> </a>  (<%=urls[key].longURL%> ) </td>
+      <td><a href = "/urls/<%= key %>"><h3> Edit </a></td>
+      <td>
+      <form method="POST" action = '/urls/<%= key %>/delete'>
+        <input type="submit" value="Delete" class="button">
       </td>
-       </form>
+      </form>
+    </tr>
      <% }%>
-  </div>
+  </table>
 </body>
 </html>
 

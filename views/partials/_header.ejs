@@ -1,14 +1,15 @@
 
-       <%  if(user){ %>
-            <p><%= user.email %><h>You are logged in! </p>  <a href = '/urls'><p style="text-align:right"><h3>My links</a>
-            <form method="POST" action = '/logout'>
-          <input type="submit" value="Logout"  align ="right" class="button" />
-        </form>
+<% if(user){ %>
+  <p><%= user.email %><h>You are logged in! </p>  <a href = '/urls'><p style="text-align:right"><h3>My links</a>
+     <form method="POST" action = '/logout'>
+     <input type="submit" value="Logout"  align ="right" class="button" />
+     </form>
 <% } else {%>
 <p align="right">
 <nav>
-  <a href="/login">Login</a>
-  <a href="/register">Create a new account</a><nav>
+ <a href="/login">Login</a>
+ <a href="/register">Create a new account</a>
+<nav>
 </p>
 <% } %>
 

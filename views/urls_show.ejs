@@ -1,39 +1,38 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-    <title>TinyApp-ShowURL</title>
-</head>
-<style>
-.button {
-    background-color: #008CBA;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-a:link {
-    color: #008CBA;
+  <title>TinyApp-ShowURL</title>
+  <style>
+    .button {
+        background-color: #008CBA;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
     }
- body {
-    margin-left:50px;
-    margin-right:50px
-  }
+     a:link {
+        color: #008CBA;
+    }
+     body {
+        margin-left:50px;
+        margin-right:50px
+    }
   </style>
-  <body>
-    <header align="right">
+</head>
+<body>
+  <header align="right">
       <% include partials/_header %>
-    </header>
-      <h3>Short URL : <%= shortURL%> </h3>
-      <form method="POST" action='/urls/<%=shortURL%>/edit'>
-        <input id="editURL" type="url" name="editURL" placeholder="<%= url %>" style="width: 300px">
-        <input type="submit" value="Update" class="button">
-      </form>
-  </body>
-  </html>
+  </header>
+    <h3>Short URL : <%= shortURL%> </h3>
+    <form method="POST" action='/urls/<%=shortURL%>/edit'>
+      <input id="editURL" type="url" name="editURL" placeholder="<%= url %>" style="width: 300px">
+      <input type="submit" value="Update" class="button">
+    </form>
+</body>
+</html>
 
